@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'kanit', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  /*  */
+}
+
+.yes-or-no-box {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image {
+  max-width: 520px;
+}
+
+.image img {
+  width: 100%;
+}
+
+.btn button {
+  font-size: 18px;
+  padding: 12px 36px 12px 36px;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn #yes {
+  background-color: #04ff00;
+  color: #000;
+}
+
+.btn #no {
+  background-color: #ff0000;
+}
+
+/* yes box */
+
+.yes-box {
+  min-height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

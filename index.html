@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yes or No</title>
+  <link rel="icon" type="image/x-icon" href="img/guilty.gif">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="content">
+      <div class="yes-or-no-box">
+        <div class="image">
+          <img src="img/guilty.gif">
+        </div>
+        <h1>I am sorry</h1>
+        <div class="btn">
+          <button id="yes">Yes</button>
+          <button id="no">No</button>
+        </div>
+      </div>
+
+      <div class="yes-box">
+        <div class="image">
+          <img src="img/peach-goma-peach-goma-love.gif">
+        </div>
+        <h1>Yayyyyyyyy</h1>
+        <h2>I love You❤️</h2>
+        <audio hidden id="song">
+          <source src="song/yay.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yes");
+    const noBtn = document.getElementById("no");
+    const yesBox = document.querySelector(".yes-box");
+    const yesOrNoBox = document.querySelector(".yes-or-no-box");
+    const song = document.getElementById("song");
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // โค้ดที่ต้องการรันเมื่อ DOM โหลดเสร็จแล้ว
+      if (localStorage.getItem("yes") === "yes") {
+        yesBox.style.display = "flex";
+        yesOrNoBox.style.display = "none";
+        console.log("แบร่ๆ กด Yes แล้วห้ามเปลี่ยน")
+      }
+    });
+
+    let styleYesBtn = window.getComputedStyle(yesBtn);
+    let valuePaddingTop = parseInt(styleYesBtn.paddingTop);
+    let valuePaddingRight = parseInt(styleYesBtn.paddingRight);
+    let valuePaddingBottom = parseInt(styleYesBtn.paddingBottom);
+    let valuePaddingLeft = parseInt(styleYesBtn.paddingLeft);
+    let valueFontSize = parseInt(styleYesBtn.fontSize);
+
+    noBtn.addEventListener("click", () => {
+      valuePaddingTop += 10;
+      valuePaddingRight += 15;
+      valuePaddingBottom += 10;
+      valuePaddingLeft += 15;
+      valueFontSize += 10;
+      yesBtn.style.padding = `${valuePaddingTop}px ${valuePaddingRight}px ${valuePaddingBottom}px ${valuePaddingLeft}px`;
+      yesBtn.style.fontSize = valueFontSize + "px";
+    });
+
+    yesBtn.addEventListener("click", () => {
+      yesBox.style.display = "flex";
+      yesOrNoBox.style.display = "none";
+      song.play();
+      localStorage.setItem("yes", "yes");
+    });
+  </script>
+
+</body>
+
+</html>
